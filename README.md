@@ -103,11 +103,11 @@ A visual representation of use cases and actors
 ### `Main Flow : Place New Order` 
 
 #### Goal : 
-    The customer selects their preferred items and receives timely delivery at the specified location.
+The customer selects their preferred items and receives timely delivery at the specified location.
 
 #### **Precondition** : 
-	- The customer is authenticated in the application using their phone number. 
-	- The restaurant is subscribed to the app, and its employees have the privilege to manage order requests. 
+- The customer is authenticated in the application using their phone number. 
+- The restaurant is subscribed to the app, and its employees have the privilege to manage order requests. 
 
 #### **Flow Steps** : 
 1. The customer opens the application on their phone, and the system automatically assigns an address if location detection is enabled on the mobile device. Alternatively, the customer can manually assign an address using the map. 
