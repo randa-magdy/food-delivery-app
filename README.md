@@ -3,18 +3,17 @@
 ## Content List
 
 1. [Vision](#vision)
-2. [Features and Functionalities](#features-and-functionalities)
-2. [Use Case Model for the System](#use-case-model-for-the-system)  
-   2.1. [Actors](#actors)  
-   2.2. [Use Cases](#use-cases)  
-   2.3. [Use Case Diagram](#use-case-diagram)  
-3. [Manage Order Case](#manage-orders-use-case)  
-   3.1. [Actors](#manage-order-use-case-actors)  
-   3.2. [Manage order Use Case Flows](#manage-order-use-case-flows)  
-   3.3. [Data Model](#data-model)  
-   3.4. [Pseudocode](#pseudocode)  
-   3.5. [UML Diagrams](#uml-diagrams)  
-   3.6. [UI Screens](#ui-screens) 
+2. [Features and Functionalities for the System](#features-and-functionalities)
+3. [Use Case Model for the System](#use-case-model-for-the-system)  
+   3.1. [Actors](#actors)  
+   3.2. [Use Cases](#use-cases)  
+   3.3. [Use Case Diagram](#use-case-diagram)  
+4. [Manage Order Case](#manage-orders-use-case)  
+   4.1. [Actors](#manage-order-use-case-actors)  
+   4.2. [Manage order Use Case Flows](#manage-order-use-case-flows)  
+   4.3. [Data Model](#data-model)  
+   4.4. [Pseudocode](#pseudocode)  
+   4.5. [UML Diagrams](#uml-diagrams)
 ---
 
 ## Vision  
