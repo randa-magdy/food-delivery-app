@@ -148,7 +148,7 @@ The customer selects their preferred items and receives timely delivery at the s
 . 
 - **Notification Sent**: 
 	- notification is sent to the customer each time the order status changes to keep them updated on its progress.
- - 
+ 
 ---
 ## Entities (Data Model)
 
