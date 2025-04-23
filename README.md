@@ -39,14 +39,19 @@ Please refer to [Features and Functionalities Document](./features-documentation
 
 ### `Main use cases` 
 - **Register & Authenticate Users**: 
-	- Users can sign up, log in, and manage their authentication securely. 
+    - Users can sign up, log in, and manage their authentication securely.
+      - Customers and drivers can sign up and log in using their phone numbers.
+      - Restaurant owners and their staff can sign up and log in using email and password.
+   - User accounts can be activated or deactivated by either the system or the user.
+     
  - **Manage Customer Profile**: 
-	- Customers can update their profile, manage addresses, payment methods, and preferences. 
+    - Customers can update their profile, manage addresses, payment methods, and preferences. 
  - **Manage Restaurants**: 
-    - Admins and restaurant owners can add new restaurants , update Restaurant, Enable/Disable Restaurant to the platform
-    - Customers can browse and view all available restaurants.
-    - Customers can search for restaurants using filters like location, rating, type, etc
+    - Admins and restaurant owners can add new restaurants/branches , update restaurant/branch, Enable/Disable Restaurant/branch to the platform
+    - Restaurant owners can manage the work schedules of their branches.
+    - Customers can browse all available restaurants or search by name using input and filters like location, rating, and type, etc.
     - The system recommends restaurants to customers based on preferences and past activity.
+    - Customers can add or remove restaurants from their favorites list.
  - **Manage Menus**: 
     - Restaurant owners can create, update, delete and manage menu items, including pricing and availability.
     - Restaurant owners can view the history of changes made to the restaurant’s menu.
