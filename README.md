@@ -45,13 +45,19 @@ Please refer to [Features and Functionalities Document](./features-documentation
    - User accounts can be activated or deactivated by either the system or the user.
      
  - **Manage Customer Profile**: 
-    - Customers can update their profile, manage addresses, payment methods, and preferences. 
+    - A Customer can update their profile
+    - A Customer can manage their addresses by add , edit & delete address & select the default
+    - A Customer can add or delete saved payment methods . 
+    - A Customer can manage their resturants or food preferences by adding or remove it from favorite list.
+    - A Customer can Deactive their account
+      
  - **Manage Restaurants**: 
     - Admins and restaurant owners can add new restaurants/branches , update restaurant/branch, Enable/Disable Restaurant/branch to the platform
     - Restaurant owners can manage the work schedules of their branches.
     - Customers can browse all available restaurants or search by name using input and filters like location, rating, and type, etc.
     - The system recommends restaurants to customers based on preferences and past activity.
     - Customers can add or remove restaurants from their favorites list.
+      
  - **Manage Menus**: 
     - Restaurant owners can create, update, delete and manage menu items, including pricing and availability.
     - Restaurant owners can view the history of changes made to the restaurant’s menu.
