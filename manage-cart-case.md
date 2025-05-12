@@ -86,7 +86,97 @@ The customer can add, update, and remove items in their shopping cart before pla
 
 ## Data Model Description
 
-[See: `data_model.md`](./data_model.md)
+The data model for the **Manage Cart** use case includes core entities such as users, customers, restaurants, menus, items, and the cart itself. The following tables are used to support the cart operations:
+
+
+### `user_type`
+Defines the roles of users in the system, such as customers, drivers, partner employees, or internal employees.
+
+- `user_type_id` (PK)
+- `name` – Unique role name (e.g., "customer")
+- `created_at`, `updated_at`
+
+
+### `user`
+Stores account details for users, including login credentials and contact information.
+
+- `user_id` (PK)
+- `user_type_id` – Foreign key to `user_type`
+- `name`, `phone`, `email`, `password`
+- `is_active`, `created_at`, `updated_at`
+
+
+### `customer`
+Links the user to a customer profile, including optional personal data.
+
+- `customer_id` (PK)
+- `user_id` – Foreign key to `user`
+- `birth_date`, `gender`
+- `created_at`, `updated_at`
+
+
+### `address` and `customer_address`
+Manages customer addresses. A customer may have multiple addresses with one marked as default.
+
+- `address_id` (PK)
+- `address_line1`, `address_line2`, `city`
+- `created_at`, `updated_at`
+
+- `customer_address` (composite PK of `customer_id` + `address_id`)
+  - `is_default` – Indicates default delivery address
+    
+
+### `restaurant`
+Stores restaurant registration and profile details.
+
+- `restaurant_id` (PK)
+- `user_id` – Foreign key to `user`
+- `name`, `commercial_registration_number`, `vat_number`
+- `logo_url`, `banner_url`, `location` (JSON)
+- `status` (enum: open, busy, pause, closed)
+- `is_active`, `created_at`, `updated_at`
+  
+
+### `menu` and `resturant_menu`
+Defines menus for restaurants. Each restaurant can have multiple menus.
+
+- `menu_id` (PK), `menu_title`, `is_active`
+- `created_at`, `updated_at`
+
+- `resturant_menu`: Composite table linking `restaurant_id` with `menu_id`
+
+
+### `item` and `menu_item`
+Represents individual menu items with pricing and availability.
+
+- `item_id` (PK)
+- `image_path`, `name`, `description`, `price`, `energy_val_cal`, `notes`
+- `is_available`, `created_at`, `updated_at`
+
+- `menu_item`: Composite table linking `menu_id` with `item_id`
+
+
+### `cart`
+Represents a customer’s cart, associated with one restaurant.
+
+- `cart_id` (PK)
+- `customer_id` – Foreign key to `customer`
+- `restaurant_id` – Foreign key to `restaurant`
+- `total_items`
+- `created_at`, `updated_at`
+
+
+### `cart_item`
+Stores individual items within a cart along with pricing and quantity.
+
+- `cart_item_id` (PK)
+- `cart_id` – Foreign key to `cart`
+- `item_id` – Foreign key to `item`
+- `quantity`, `price`, `discount`, `total_price`
+- `created_at`, `updated_at`
+
+
+These entities together provide the full backend data structure for managing a customer's cart, supporting features such as adding/removing items, updating quantities, viewing total cost, and persisting cart state across sessions.
 
 ---
 
