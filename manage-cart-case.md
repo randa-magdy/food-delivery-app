@@ -80,7 +80,7 @@ The customer can add, update, and remove items in their shopping cart before pla
 
 ## Entity Relationship Diagram (ERD)
 
-![ERD Diagram](./diagrams/manage_cart_erd.png)
+![ERD Diagram](./diagrams/cart-management-erd.png)
 
 ---
 
