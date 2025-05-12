@@ -7,13 +7,7 @@
 3. [Use Case Model for the System](#use-case-model-for-the-system)  
    3.1. [Actors](#actors)  
    3.2. [Use Cases](#use-cases)  
-   3.3. [Use Case Diagram](#use-case-diagram)  
-4. [Manage Order Case](#manage-orders-use-case)  
-   4.1. [Actors](#manage-order-use-case-actors)  
-   4.2. [Manage order Use Case Flows](#manage-order-use-case-flows)  
-   4.3. [Data Model](#data-model)  
-   4.4. [Pseudocode](#pseudocode)  
-   4.5. [UML Diagrams](#uml-diagrams)
+   3.3. [Use Case Diagram](#use-case-diagram)
 ---
 
 ## Vision  
