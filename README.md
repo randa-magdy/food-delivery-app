@@ -64,7 +64,7 @@ Please refer to [Features and Functionalities Document](./features-documentation
     - Customers can add, remove, view & update quantity of items in their cart before placing an order. 
     - Customers proceed to checkout to enter shipping details, select payment methods, and confirm the order.
       
-      <span style="color: #89CFF0;">(For detailed specifications, including use case flows, diagrams, pseudocode , data models and others, refer to the [Manage Cart Use Case Document](./manage-cart-case.md))</span>
+      **(For detailed specifications, including use case flows, diagrams, pseudocode , data models and others, refer to the [Manage Cart Use Case Document](./manage-cart-case.md))**
       
  - **Manage Orders**: 
     - Customers can place orders, while restaurants and delivery personnel handle order fulfillment.
@@ -74,7 +74,7 @@ Please refer to [Features and Functionalities Document](./features-documentation
     - Customers and restaurants can view a summary of the order, including items, quantities, prices, and total amount.
     - Customers and restaurants can view detailed information for each order, such as delivery address, payment method, and special instructions.
       
-      <span style="color: #89CFF0;">(For detailed specifications, including use case flows, diagrams, pseudocode , data models and others , refer to the [Manage Order Use Case Document](./place-order-use-case.md))</span>
+      **(For detailed specifications, including use case flows, diagrams, pseudocode , data models and others , refer to the [Manage Order Use Case Document](./place-order-use-case.md))**
       
  - **Integrate Payment**: 
     - Customers can securely make payments using different methods, and the system processes transactions.
