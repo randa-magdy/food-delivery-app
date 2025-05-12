@@ -1,6 +1,7 @@
-# Manage Cart – Use Case Documentation
+# Manage Order – Use Case Documentation
 
 This repository contains comprehensive documentation for the **Place Order** use case of a food delivery application. It includes the complete flow description, visual representations, data modeling, and supporting pseudocode and diagrams.
+
 ---
 
 ## Content List
@@ -97,6 +98,12 @@ The customer selects their preferred items and receives timely delivery at the s
 ## Sequence Diagram
 
 ![FDS Sequence Diagram](./diagrams/food-delivery-sequence-diagram.png) 
+
+---
+
+## Pseudocode
+
+--- **Will be added soon.**
 
 ---
 
