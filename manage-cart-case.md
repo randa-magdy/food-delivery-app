@@ -180,8 +180,125 @@ These entities together provide the full backend data structure for managing a c
 
 ---
 
-## SQL Scripts
+## Database Schema (PostgreSQL Compatible)
 
-[See: `sql_scripts.sql`](./sql_scripts.sql)
+```sql
+CREATE TABLE user_type (
+    user_type_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE "user" (
+    user_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    phone VARCHAR(15) UNIQUE,
+    password VARCHAR(250) NOT NULL CHECK (CHAR_LENGTH(password) BETWEEN 8 AND 250),
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    user_type_id INT REFERENCES user_type(user_type_id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE address (
+    address_id SERIAL PRIMARY KEY,
+    address_line1 TEXT NOT NULL,
+    address_line2 TEXT NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE customer (
+    customer_id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL UNIQUE REFERENCES "user"(user_id),
+    birth_date DATE NULL,
+    gender VARCHAR(6) CHECK (gender IN ('male', 'female')),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE customer_address (
+    address_id INT NOT NULL REFERENCES address(address_id),
+    customer_id INT NOT NULL REFERENCES customer(customer_id),
+    is_default BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (address_id, customer_id)
+);
+
+CREATE TABLE restaurant (
+    restaurant_id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL UNIQUE REFERENCES "user"(user_id),
+    name VARCHAR(255) NOT NULL,
+    logo_url VARCHAR(512) DEFAULT '',
+    banner_url VARCHAR(512) NOT NULL DEFAULT '',
+    location JSONB,
+    status VARCHAR(6) NOT NULL CHECK (status IN ('open', 'busy', 'pause', 'closed')),
+    commercial_registration_number VARCHAR(20) UNIQUE NOT NULL,
+    vat_number VARCHAR(15) UNIQUE NOT NULL,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE menu (
+    menu_id SERIAL PRIMARY KEY,
+    menu_title VARCHAR(100) NOT NULL CHECK (CHAR_LENGTH(menu_title) BETWEEN 2 AND 100),
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE restaurant_menu (
+    restaurant_menu_id SERIAL PRIMARY KEY,
+    restaurant_id INT NOT NULL REFERENCES restaurant(restaurant_id),
+    menu_id INT NOT NULL REFERENCES menu(menu_id),
+    display_order INT NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(restaurant_id, menu_id)
+);
+
+CREATE TABLE item (
+    item_id SERIAL PRIMARY KEY,
+    image_path VARCHAR(512) NOT NULL DEFAULT '',
+    name VARCHAR(100) NOT NULL CHECK (CHAR_LENGTH(name) BETWEEN 2 AND 100),
+    description TEXT DEFAULT '',
+    price DECIMAL(10,2) NOT NULL CHECK (price >= 0.00),
+    energy_val_cal DECIMAL(10,2) NOT NULL DEFAULT 0.0 CHECK (energy_val_cal >= 0.00),
+    notes TEXT DEFAULT '',
+    is_available BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE menu_item (
+    menu_id INT NOT NULL REFERENCES menu(menu_id),
+    item_id INT NOT NULL REFERENCES item(item_id),
+    PRIMARY KEY (menu_id, item_id)
+);
+
+CREATE TABLE cart (
+    cart_id SERIAL PRIMARY KEY,
+    customer_id INT NOT NULL REFERENCES customer(customer_id),
+    restaurant_id INT NOT NULL REFERENCES restaurant(restaurant_id),
+    total_items INT NOT NULL DEFAULT 0 CHECK (total_items >=0),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE cart_item (
+    cart_item_id SERIAL PRIMARY KEY,
+    cart_id INT NOT NULL REFERENCES cart(cart_id),
+    item_id INT NOT NULL REFERENCES item(item_id),
+    quantity INT NOT NULL CHECK (quantity > 0),
+    price DECIMAL(10,2) NOT NULL CHECK (price >= 0.00),
+    discount DECIMAL(10,2) NOT NULL CHECK (discount >= 0.00),
+    total_price DECIMAL(10,2) NOT NULL CHECK (total_price >= 0.00),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 ---
