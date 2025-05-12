@@ -103,21 +103,22 @@ The customer selects their preferred items and receives timely delivery at the s
 
 ## Pseudocode
 
---- **Will be added soon.**
+ **Will be added soon.**
 
 ---
 
 ## Entity Relationship Diagram (ERD)
 
---- **Will be added soon.**
+ **Will be added soon.**
 
 ---
 
 ## Data Model Description
 
---- **Will be added soon.**
+ **Will be added soon.**
+
 ---
 
 ## Database Schema (PostgreSQL Compatible)
 
---- **Will be added soon.**
+ **Will be added soon.**
