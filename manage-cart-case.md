@@ -74,7 +74,7 @@ The customer can add, update, and remove items in their shopping cart before pla
 
 ## Sequence Diagram
 
-![Manage Cart Sequence Diagram](./diagrams/manage_cart_sequence_diagram.png)
+![Manage Cart Sequence Diagram](./diagrams/manage-cart-sequence-diagram.png)
 
 ---
 
