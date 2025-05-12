@@ -36,7 +36,7 @@ This documentation aims to present the full flow and underlying structure of the
 ### `Actors`  
 - Customer
 
-### **Main Flow**: Manage Cart  
+### `**Main Flow**: Manage Cart` 
 **Goal**:  
 The customer can add, update, and remove items in their shopping cart before placing an order.
 
