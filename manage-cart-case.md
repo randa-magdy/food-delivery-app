@@ -68,7 +68,7 @@ The customer can add, update, and remove items in their shopping cart before pla
 
 ## Flowchart Diagram
 
-![Manage Cart Flowchart](./diagrams/manage_cart_flowchart.png)
+![Manage Cart Flowchart](./diagrams/manage-cart-flowchart.png)
 
 ---
 
