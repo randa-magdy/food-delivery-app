@@ -110,11 +110,3 @@ A visual representation of use cases and actors
 
 ![FDS Use Case Diagram](./diagrams/food-delivery-app-use-case-modal.png) 
 
-
-
-
-### `Sequence Diagram `: 
-![FDS Sequence Diagram](./diagrams/food-delivery-sequence-diagram.png) 
-
-
- 
