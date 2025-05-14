@@ -167,6 +167,7 @@ Represents a customer’s cart, associated with one restaurant.
 - `customer_id` – Foreign key to `customer`
 - `restaurant_id` – Foreign key to `restaurant`
 - `total_items`
+- `is_active`
 - `created_at`, `updated_at`
 
 
@@ -175,7 +176,7 @@ Stores individual items within a cart along with pricing and quantity.
 
 - `cart_item_id` (PK)
 - `cart_id` – Foreign key to `cart`
-- `item_id` – Foreign key to `item`
+- `menu_item_id` – Foreign key to `menu_item`
 - `quantity`, `price`, `discount`, `total_price`
 - `created_at`, `updated_at`
 
@@ -279,9 +280,9 @@ CREATE TABLE item (
 );
 
 CREATE TABLE menu_item (
+    menu_item_id SERIAL PRIMARY KEY,
     menu_id INT NOT NULL REFERENCES menu(menu_id),
     item_id INT NOT NULL REFERENCES item(item_id),
-    PRIMARY KEY (menu_id, item_id)
 );
 
 CREATE TABLE cart (
@@ -289,6 +290,7 @@ CREATE TABLE cart (
     customer_id INT NOT NULL REFERENCES customer(customer_id),
     restaurant_id INT NOT NULL REFERENCES restaurant(restaurant_id),
     total_items INT NOT NULL DEFAULT 0 CHECK (total_items >=0),
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -296,7 +298,7 @@ CREATE TABLE cart (
 CREATE TABLE cart_item (
     cart_item_id SERIAL PRIMARY KEY,
     cart_id INT NOT NULL REFERENCES cart(cart_id),
-    item_id INT NOT NULL REFERENCES item(item_id),
+    menu_item_id INT NOT NULL REFERENCES menu_item(menu_item_id),
     quantity INT NOT NULL CHECK (quantity > 0),
     price DECIMAL(10,2) NOT NULL CHECK (price >= 0.00),
     discount DECIMAL(10,2) NOT NULL CHECK (discount >= 0.00),
