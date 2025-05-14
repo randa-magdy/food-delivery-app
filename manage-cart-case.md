@@ -12,7 +12,7 @@ This repository contains a comprehensive documentation for the Simple **Manage C
 4. [Sequence Diagram](#sequence-diagram)
 5. [Entity Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
 6. [Data Model Description](#data-model-description)
-7. [SQL Scripts](#sql-scripts)
+7. [Database Schema (PostgreSQL Compatible)](#database-schema)
 
 ---
 
