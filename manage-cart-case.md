@@ -190,7 +190,7 @@ These entities together provide the full backend data structure for managing a c
 ```sql
 CREATE TABLE user_type (
     user_type_id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL UNIQUE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -282,7 +282,7 @@ CREATE TABLE item (
 CREATE TABLE menu_item (
     menu_item_id SERIAL PRIMARY KEY,
     menu_id INT NOT NULL REFERENCES menu(menu_id),
-    item_id INT NOT NULL REFERENCES item(item_id),
+    item_id INT NOT NULL REFERENCES item(item_id)
 );
 
 CREATE TABLE cart (
